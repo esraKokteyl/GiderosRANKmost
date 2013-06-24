@@ -15,10 +15,11 @@ if(isRankmostAvailable) then
 	label:addEventListener(Event.TOUCHES_BEGIN,
 	function(e)
 		if label:hitTestPoint(e.touch.x, e.touch.y) then
-		-- This method opens the Portal as a webview and lets a user register or login. 
+		-- This method is called to opens the Portal as a webview.
+		-- After logging in, the user is able to see their scoreboards and trophies.
+		-- To open different pages such as  scoreboard, forum, etc., call this method with constants which you can find from Rankmost SDK
 		-- After logging in, the user is able to see their scoreboards and trophies. 
-		-- If there is no user guid data on the device, by logging in or registering, Rankmost saves it to the device.
-			rankmost:startPortal();
+		rankmost:startPortal(0);
 		end
 	end)	
 end
@@ -37,8 +38,8 @@ if(isRankmostAvailable) then
 			--Two args; status and message
 			rankmost:addEventListener(Event.SCORE_SENT, 
 			function(e)
-				local score_response = TextField.new(nil, "STATUS: "..e.status.."  MSG: "..e.message)
-				score_response:setPosition(20, 400)
+				local score_response = TextField.new(nil, "STATUS: "..e.status.." Value "..e.recordBreak.."  MSG: "..e.message)
+				score_response:setPosition(20, 500)
 				score_response:setScale(2)
 				stage:addChild(score_response)
 			end)
@@ -80,8 +81,23 @@ if(isRankmostAvailable) then
 	rankmost:addEventListener(Event.TROPHY_SENT, 
 	function(e)
 		local trophy_response = TextField.new(nil, "STATUS: "..e.status.."  CMP: "..e.value.."  MSG: "..e.message)
-		trophy_response:setPosition(20, 500)
+		trophy_response:setPosition(20, 600)
 		trophy_response:setScale(2)
 		stage:addChild(trophy_response)
 		end)
+end
+
+local label = TextField.new(nil, "ScoreboardWLG")
+label:setPosition(40, 400)
+label:setScale(2)
+stage:addChild(label)
+
+if(isRankmostAvailable) then
+	label:addEventListener(Event.TOUCHES_BEGIN,
+	function(e)
+		if label:hitTestPoint(e.touch.x, e.touch.y) then
+		-- This method opens the High Score Ranking page by calling it with leaderboardguid
+			rankmost:startPortalWithLeaderBoard("<leaderboardGuid>");
+		end
+	end)	
 end
