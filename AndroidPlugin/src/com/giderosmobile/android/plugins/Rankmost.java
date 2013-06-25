@@ -12,6 +12,27 @@ public class Rankmost{
 	* STATUS_ERROR = 0xe1;
 	* STATUS_CONNECTION_ERROR = 0xe2;
 	* STATUS_USER_NOT_FOUND = 0xe3;
+	* 
+	* ** startPortal constants
+	* 
+	* PORTAL_DEFAULT = 0;
+	* PORTAL_SCORE_BOARD = 2;
+	* PORTAL_FORUM = 3;
+	* PORTAL_TROPHY = 4;
+	*  
+	** Record break parameter comes on sendScrore response, handle it according to these constants
+	* 
+	* RECORD_BREAK_NONE = -1;
+	* RECORD_BREAK_PERSONAL_HOURLY = 1;
+	* RECORD_BREAK_PERSONAL_DAILY = 2;
+	* RECORD_BREAK_PERSONAL_WEEKLY = 3;
+	* RECORD_BREAK_PERSONAL_MONTHLY = 4;
+	* RECORD_BREAK_PERSONAL_ALL_TIME = 5;
+	* RECORD_BREAK_OVERALL_HOURLY = 6;
+	* RECORD_BREAK_OVERALL_DAILY = 7;
+	* RECORD_BREAK_OVERALL_WEEKLY = 8;
+	* RECORD_BREAK_OVERALL_MONTHLY = 9;
+	* RECORD_BREAK_OVERALL_ALL_TIME = 10;
 	**/
 	public static final int STATUS_NOT_INITIALIZED = 0x194;
 
@@ -46,9 +67,9 @@ public class Rankmost{
 	private static boolean isInitialized(){
 		return sInstance != null;
 	}
-	// This method is called to opens the Portal as a webview.
+	// This method is called to open the Portal as a webview.
 	// After logging in, the user is able to see their scoreboards and trophies.
-	// To open different pages such as  scoreboard, forum, etc., call this method with constants which you can find from Rankmost SDK
+	// To open different pages such as  scoreboard, forum, etc., call this method with constants. Find them above, use them from Rankmost SDK
 	// After logging in, the user is able to see their scoreboards and trophies. 
 	private static void startPortal(int portalPage){
 		if(!isInitialized()){
