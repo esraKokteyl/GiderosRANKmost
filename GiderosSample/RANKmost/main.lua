@@ -80,7 +80,7 @@ if(isRankmostAvailable) then
 	--value is a completion percentage
 	rankmost:addEventListener(Event.TROPHY_SENT, 
 	function(e)
-		local trophy_response = TextField.new(nil, "STATUS: "..e.status.."  CMP: "..e.value.."  MSG: "..e.message)
+		local trophy_response = TextField.new(nil, "STATUS: "..e.status.."  CMP: "..e.completitionValue.."  MSG: "..e.message)
 		trophy_response:setPosition(20, 600)
 		trophy_response:setScale(2)
 		stage:addChild(trophy_response)
