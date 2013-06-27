@@ -15,7 +15,7 @@ if(isRankmostAvailable) then
 	label:addEventListener(Event.TOUCHES_BEGIN,
 	function(e)
 		if label:hitTestPoint(e.touch.x, e.touch.y) then
-		-- This method is called to opens the Portal as a webview.
+		-- This method is called to open the Portal as a webview.
 		-- After logging in, the user is able to see their scoreboards and trophies.
 		-- To open different pages such as  scoreboard, forum, etc., call this method with constants which you can find from Rankmost SDK
 		-- After logging in, the user is able to see their scoreboards and trophies. 
