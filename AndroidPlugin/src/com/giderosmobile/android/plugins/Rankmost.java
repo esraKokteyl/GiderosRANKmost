@@ -109,9 +109,9 @@ public class Rankmost{
 		}
 		sInstance.sendTrophy(trophyGuid, new RANKmostTrophyListener() {
 			@Override
-			public void onAction(int status,int value, String message) {
+			public void onAction(int status,int completitionValue, String message) {
 				if (sData != 0)
-				onTrophyResponse(status, value, message, sData);
+				onTrophyResponse(status, completitionValue, message, sData);
 			}
 		});
 	}
@@ -125,15 +125,15 @@ public class Rankmost{
 		}
 		sInstance.sendTrophy(trophyGuid, percent, new RANKmostTrophyListener() {
 			@Override
-			public void onAction(int status,int value, String message) {
+			public void onAction(int status,int completitionValue, String message) {
 				if (sData != 0)
-				onTrophyResponse(status, value, message, sData);
+				onTrophyResponse(status, completitionValue, message, sData);
 			}
 		});
 	}
 
 	private static native void onScoreResponse(int status, int recordBreak, String message, long data);
-	private static native void onTrophyResponse(int status, int value, String message, long data);
+	private static native void onTrophyResponse(int status, int completitionValue, String message, long data);
 
 	static public void onDestroy()
     {
