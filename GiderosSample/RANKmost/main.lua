@@ -9,6 +9,7 @@ end
 local label = TextField.new(nil, "Scoreboard")
 label:setPosition(40, 80)
 label:setScale(2)
+label:setScale(2)
 stage:addChild(label)
 
 if(isRankmostAvailable) then
@@ -19,7 +20,7 @@ if(isRankmostAvailable) then
 		-- After logging in, the user is able to see their scoreboards and trophies.
 		-- To open different pages such as  scoreboard, forum, etc., call this method with constants which you can find from Rankmost SDK
 		-- After logging in, the user is able to see their scoreboards and trophies. 
-		rankmost:startPortal(0);
+		rankmost:startPortal(<portalPage>);
 		end
 	end)	
 end
@@ -33,7 +34,7 @@ if(isRankmostAvailable) then
 		if text:hitTestPoint(e.touch.x, e.touch.y) then
 		--This method is called to send the user's score with the parameters leaderboard guid and score.
 		--Score is a number, guid is string
-			rankmost:sendScore("<leaderboardGuid>", score);
+			rankmost:sendScore("<leaderboardGuid>", <score>);
 			--Handle this event to get a response for the request. 
 			--Two args; status and message
 			rankmost:addEventListener(Event.SCORE_SENT, 
