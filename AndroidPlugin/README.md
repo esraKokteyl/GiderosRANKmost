@@ -25,7 +25,7 @@ Add lib as `System.loadLibrary("rankmost");`
   
 Add external class as `"com.giderosmobile.android.plugins.Rankmost"`
 
-Add <activity android:name="com.kokteyl.rankmost.RANKmostPortal"/> on your AndroidManifest.xml
+Add `"com.kokteyl.rankmost.RANKmostPortal"` as an activity on your AndroidManifest.xml
 
 Clean your project and launch it. You are good to go! 
 
