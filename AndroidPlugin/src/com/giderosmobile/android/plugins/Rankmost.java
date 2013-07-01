@@ -70,7 +70,6 @@ public class Rankmost{
 	// This method is called to open the Portal as a webview.
 	// After logging in, the user is able to see their scoreboards and trophies.
 	// To open different pages such as  scoreboard, forum, etc., call this method with constants. Find them above, use them from Rankmost SDK
-	// After logging in, the user is able to see their scoreboards and trophies. 
 	private static void startPortal(int portalPage){
 		if(!isInitialized()){
 			onScoreResponse(STATUS_NOT_INITIALIZED, -1,"Rankmost is not initialized", sData);
