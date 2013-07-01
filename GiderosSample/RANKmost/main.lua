@@ -19,7 +19,6 @@ if(isRankmostAvailable) then
 		-- This method is called to open the Portal as a webview.
 		-- After logging in, the user is able to see their scoreboards and trophies.
 		-- To open different pages such as  scoreboard, forum, etc., call this method with constants which you can find from Rankmost SDK
-		-- After logging in, the user is able to see their scoreboards and trophies. 
 		rankmost:startPortal(<portalPage>);
 		end
 	end)	
@@ -36,7 +35,7 @@ if(isRankmostAvailable) then
 		--Score is a number, guid is string
 			rankmost:sendScore("<leaderboardGuid>", <score>);
 			--Handle this event to get a response for the request. 
-			--Two args; status and message
+			--Three args; status, recordBreak and message
 			rankmost:addEventListener(Event.SCORE_SENT, 
 			function(e)
 				local score_response = TextField.new(nil, "STATUS: "..e.status.." Value "..e.recordBreak.."  MSG: "..e.message)
